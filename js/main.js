@@ -65,7 +65,6 @@ const createPopupMarkup = (counterOfClick, bestResultOfClick) => {
         <button class="popup__inner-btn js-popup-btn">Restart game</button>
       </div>
     `;
-
   elemPopup.innerHTML = "";
   elemPopup.innerHTML = popupMarkup;
 };
@@ -93,10 +92,10 @@ const restartGame = () => {
   elemPopupBtn.addEventListener("click", (event) => {
     event.preventDefault();
     if (counterOfClick < bestResultOfClick || !bestResultOfClick) {
+      bestResultOfClick = counterOfClick;
       setResult();
     }
     createContent();
-    bestResultOfClick = counterOfClick;
     counterOfClick = 0;
     counterOfPair = 0;
     elemPopup.classList.toggle(CLASS_IS_POPUP_ACTIVE);
